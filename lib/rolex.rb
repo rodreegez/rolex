@@ -17,5 +17,9 @@ module Rolex
     def roles
       Redis.current.smembers("user:#{id}:rolex:#{ENV['RAILS_ENV']}")
     end
+
+    def remove_role(role)
+      Redis.current.srem "user:#{id}:rolex:#{ENV['RAILS_ENV']}", role.to_s
+    end
   end
 end
