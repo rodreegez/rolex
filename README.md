@@ -27,7 +27,9 @@ Roles can be anything you like.
 
 ## TODO
 
-Add tests!
+* Add tests!
+* Configure Redis properly (currently relies on how I like to define Redis in my Rails apps)
+* Make framework agnostic
 
 ## Installation
 
