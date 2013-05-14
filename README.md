@@ -1,6 +1,12 @@
 # Rolex
 
-Redis-backed roles for Rails applications
+Redis-backed roles for Rails applications.
+
+## To use in a Rails application
+
+Create an initializer:
+
+    Rolex.redis = (Redis.current || ENV['REDISTOGO_URL'] || whatever)
 
 Include Rolex into your model:
 
