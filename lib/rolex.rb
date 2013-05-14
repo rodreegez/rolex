@@ -49,19 +49,19 @@ module Rolex
 
   included do
     def add_role(role)
-      Redis.current.sadd "user:#{id}:rolex:#{SUFFIX}", role.to_s
+      Rolex.redis.sadd "user:#{id}:rolex:#{SUFFIX}", role.to_s
     end
 
     def has_role?(role)
-      Redis.current.smembers("user:#{id}:rolex:#{SUFFIX}").include? role.to_s
+      Rolex.redis.smembers("user:#{id}:rolex:#{SUFFIX}").include? role.to_s
     end
 
     def roles
-      Redis.current.smembers("user:#{id}:rolex:#{SUFFIX}")
+      Rolex.redis.smembers("user:#{id}:rolex:#{SUFFIX}")
     end
 
     def remove_role(role)
-      Redis.current.srem "user:#{id}:rolex:#{SUFFIX}", role.to_s
+      Rolex.redis.srem "user:#{id}:rolex:#{SUFFIX}", role.to_s
     end
   end
 end
