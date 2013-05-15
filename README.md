@@ -23,7 +23,7 @@ Then:
     => true
 
     > user.roles
-    => ['roles']
+    => ['admin']
 
 Roles are unique - if in doubt, add it.
 
