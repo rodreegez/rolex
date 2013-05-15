@@ -31,15 +31,15 @@ A model can have as many roles as you like.
 
 Roles can be anything you like.
 
-Because Redis deals in strings
+Because Redis deals in strings, but you may wish to use symbols to indicate roles...
 
     > user.add_role 'admin'
 
-Is equivalent to
+...is treated as equivalent to:
 
     > user.add_role :admin
 
-The result of
+The result of:
 
     > user.roles
 
