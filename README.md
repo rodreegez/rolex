@@ -16,10 +16,10 @@ Include Rolex into your model:
 
 Then:
 
-    > user.add_role :admin
+    > user.add_role 'admin'
     => true
 
-    > user.has_role? :admin
+    > user.has_role? 'admin'
     => true
 
     > user.roles
@@ -30,6 +30,20 @@ Roles are unique - if in doubt, add it.
 A model can have as many roles as you like.
 
 Roles can be anything you like.
+
+Because Redis deals in strings, but you may wish to use symbols to indicate roles...
+
+    > user.add_role 'admin'
+
+...is treated as equivalent to:
+
+    > user.add_role :admin
+
+The result of:
+
+    > user.roles
+
+Will always be an Array. Any roles present will always be strings.
 
 ## TODO
 
