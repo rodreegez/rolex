@@ -37,6 +37,7 @@ describe 'role methods' do
   end
 
   it 'should return all roles as an Array' do
+    @user.add_role :admin
     @user.roles.should == ['admin']
   end
 
