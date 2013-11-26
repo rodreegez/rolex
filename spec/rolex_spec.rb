@@ -15,15 +15,32 @@ describe Rolex do
   it 'connect to redis' do
     Rolex.redis.should_not be_nil
   end
+end
 
-  it 'should assign a role' do
-    user = TestUser.new
-    user.add_role :admin
+describe 'role methods' do
+  before(:each) do
+    @user = TestUser.new
+  end
 
-    user.has_role?('admin').should be_true
+  it 'should have no roles if none added' do
+    @user.roles.should == []
+  end
+
+  it 'should assign a role from a sym' do
+    @user.add_role :admin
+    @user.has_role?('admin').should be_true
+  end
+
+  it 'should assign a role from a string' do
+    @user.add_role 'admin'
+    @user.has_role?('admin').should be_true
+  end
+
+  it 'should return all roles as an Array' do
+    @user.roles.should == ['admin']
   end
 
   after(:each) do
-    Rolex.redis.del 'rolex-test:*'
+    Rolex.redis.del 'user:1:rolex:test'
   end
 end
