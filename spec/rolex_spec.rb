@@ -12,7 +12,7 @@ describe Rolex do
     Rolex::VERSION.should_not be_nil
   end
 
-  it 'connect to redis' do
+  it 'should connect to redis' do
     Rolex.redis.should_not be_nil
   end
 end
