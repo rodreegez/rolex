@@ -1,0 +1,1 @@
+Rolex.redis = Redis.current
