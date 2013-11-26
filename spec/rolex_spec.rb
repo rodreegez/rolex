@@ -5,7 +5,8 @@ describe Rolex do
     Rolex::VERSION.should_not be_nil
   end
 
-  it 'should do something useful' do
-    true.should be_true
+  it 'connect to redis' do
+    puts Rolex.redis.inspect
+    Rolex.redis.should_not be_nil
   end
 end
