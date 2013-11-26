@@ -36,6 +36,11 @@ describe 'role methods' do
     @user.has_role?('admin').should be_true
   end
 
+  it 'allows checking of a role by sym' do
+    @user.add_role 'admin'
+    @user.has_role?(:admin).should be_true
+  end
+
   it 'should return all roles as an Array' do
     @user.add_role :admin
     @user.roles.should == ['admin']
